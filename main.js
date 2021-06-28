@@ -3,9 +3,22 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+document.getElementById("modal").className = "hidden";
+const modalDiv = document.getElementById("modal")
 
+const heartIcon = document.querySelectorAll(".like-glyph") //whole node
+heartIcon.forEach((heart) => {
+    heart.addEventListener("click", changeHeart())
+})
 
-
+function changeHeart() {
+  
+  if (heartIcon.innerHTML = EMPTY_HEART) {
+    heartIcon.innerHTML = FULL_HEART
+  } else  {
+    heartIcon.innerHTML = EMPTY_HEART
+  }
+}
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
