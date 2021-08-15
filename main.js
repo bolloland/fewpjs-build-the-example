@@ -8,17 +8,23 @@ const modalDiv = document.getElementById("modal")
 
 const heartIcon = document.querySelectorAll(".like-glyph") //whole node
 heartIcon.forEach((heart) => {
-    heart.addEventListener("click", changeHeart())
+    heart.addEventListener("click", changeHeart = (event) => {
+      let hrt = event.target
+      mimicServerCall() 
+      .then(resp => resp.json())
+      .then(json => console.log(json))
+      
+      // if (hrt.innerText = EMPTY_HEART) {
+      //   hrt.innerText = FULL_HEART
+      // } else {
+      //   hrt.innerText = EMPTY_HEART
+      // }
+      // console.log(hrt.innerText)
+    })
 })
 
-function changeHeart() {
-  
-  if (heartIcon.innerHTML = EMPTY_HEART) {
-    heartIcon.innerHTML = FULL_HEART
-  } else  {
-    heartIcon.innerHTML = EMPTY_HEART
-  }
-}
+
+
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
