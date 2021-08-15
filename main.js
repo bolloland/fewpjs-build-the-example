@@ -10,9 +10,23 @@ const heartIcon = document.querySelectorAll(".like-glyph") //whole node
 heartIcon.forEach((heart) => {
     heart.addEventListener("click", changeHeart = (event) => {
       let hrt = event.target
+      console.log(event)
       mimicServerCall() 
-      .then(resp => resp.json())
-      .then(json => console.log(json))
+      .then(() => {
+        if (hrt.innerText = EMPTY_HEART) {
+          hrt.innerText = FULL_HEART
+          hrt.style.color = "red"
+        } else {
+          hrt.innerText = EMPTY_HEART
+          hrt.style.color = ""
+        }
+        })
+        
+      .catch((error) => {
+        modalDiv.className = ""
+        alert("Random server error. Try again.")
+        setTimeout(() => modalDiv.className = "hidden", 3000)
+      })
       
       // if (hrt.innerText = EMPTY_HEART) {
       //   hrt.innerText = FULL_HEART
